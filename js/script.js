@@ -1,6 +1,6 @@
 // GLOBAL VARIABLES
 
-let empForm
+let empForm             // Main Form
 let empId               // Employee ID TEXT BOX
 let name                // Full Name TEXT BOX
 let ext                 // Extension TEXT BOX
@@ -11,26 +11,34 @@ let submit              // Add Employee BUTTON
 // HELPER FUNCTION TO RETURN DOM ELEMENT
 const $ = (id) => document.getElementById(id)
 
-// GET THE DOM ELEMENTS
-empId           = $('empForm.id')
-name            = $('empForm.name')
-ext             = $('empForm.ext')
-email           = $('empForm.email')
-department      = $('empForm.department')
-submit          = $('empForm.submit')
+empForm         = $('empForm')
 
 // Handle the load event of the window object
 window.addEventListener('load', (event) => {
-    console.log('The page has fully loaded');
+    
+// GET THE DOM ELEMENTS
+
+empId           = $('id')
+name            = $('name')
+ext             = $('ext')
+email           = $('email')
+department      = $('department')
+submit          = $('submit')
+
 });
 
-// 
+// Create an event listener that handles the form’s submission and prevent default behavior of the form
 
-console.log(empId + name)
-
-submit.addEventListener('click', (e) => {
+empForm.addEventListener('submit', (e) => {
 
     e.preventDefault()
-    console.log(parseFloat(empId.value) + parseFloat(name.value))
+
+// Collect all of the values from the form elements and display them within the console window
+
+    console.log("ID: " + empId.value + "\n" +
+                "Name: " + name.value + "\n" + 
+                "Extension: " + ext.value + "\n" + 
+                "Email: " + email.value + "\n" +
+                "Department: " + department.value)
 }
     )
